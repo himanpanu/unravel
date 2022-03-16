@@ -9,9 +9,9 @@ const Businessbanner = (props) => {
     .then(data => setExplore(data.data))
   })
 
-  return <section className='bg-slate-200 h-4/6 flex flex-col justify-center items-center space-y-5'>
+  return <section className='bg-slate-200 h-3/4 flex flex-col justify-center items-center space-y-5'>
       <div className='text-blue-900 text-3xl font-bold mb-10 mt-5'>Find the Best Business in Town</div>
-      <div className='flex items-start w-full px-40 mx-10 pb-5 overflow-x-auto overflow-y-hidden'>{explore && explore.map((value) => {
+      <div className='flex items-start w-full px-10 mx-10 pb-5 overflow-x-auto overflow-y-hidden'>{explore && explore.map((value) => {
         return (<Article2 key={value.id} rating={value.ratingAverage} image={value.headerUrl[0]} reviews={value.reviewCount} {...value}/>)
       })}</div>
       

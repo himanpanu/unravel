@@ -7,6 +7,7 @@ const AboutBusiness = () => {
     const { id } =  useParams();
     const [details, setDetails] = useState()
     const [reviews, setReviews] = useState()
+    const [review, setReview] = useState("")
 
     useEffect(async () => {
         await fetch('https://finalexam.online/onlinebusiness/'+id)
@@ -22,8 +23,25 @@ const AboutBusiness = () => {
         } )
     })
 
+    const handleReview = async() => {
+        await fetch("https://finalexam.online/review/test2@gmail.com/"+id, {
+            method: 'POST', 
+            cache: 'no-cache', 
+            credentials: 'same-origin',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            redirect: 'follow', 
+            referrerPolicy: 'no-referrer',
+            body: JSON.stringify({"ratingStar":3,
+            "message": review,
+            "businessName":"businessName"})
+          })
+          .then(response => response.json())
+    }
+
   return (
-    <div className='h-screen'>
+    <div className='h-screen font-["Arial"]'>
         <Header/>
         <div style={{backgroundImage: details ? "url("+details.headerUrl[0]+")" : "url(/images/store.jpg)"}} className={'bg-cover flex bg-center h-4/6 items-end justify-end'}>
         
@@ -70,9 +88,9 @@ const AboutBusiness = () => {
               Contact Info
           </h1>
           <h4>{details ? details.contact :"00 343 7859"}</h4>
-          <h4>{details ? details.website : "www.abcsite.com"}</h4>
-          <h4>facebooko.com/getgolo</h4>
-          <h4>{details ? details.instagramUrl :"instagram.com/getgolo"}</h4>
+          <a href={details ? details.website : "www.abcsite.com"}>{details ? details.website : "www.abcsite.com"}</a>
+          <a href="https://facebook.com/getgolo">facebook.com/getgolo</a>
+          <a href={details ? details.instagramUrl :"instagram.com/getgolo"}>{details ? details.instagramUrl :"instagram.com/getgolo"}</a>
       </div>
 
       <div>
@@ -109,8 +127,8 @@ const AboutBusiness = () => {
       <div className='flex flex-col'>
           <h1 className='text-lg font-bold'>Write a Review</h1>
           <h4 className='text-[0.95rem] mt-3'>Rate This Place</h4>
-          <textarea className='w-2/3 h-40 border border-slate-500 rounded-md mt-5'></textarea>
-          <button className='rounded-xl mt-5 py-1 bg-blue-400 w-20 text-white'>Submit</button>
+          <textarea value={review} onChange={evt => setReview(evt.target.value)} className='w-2/3 h-40 border border-slate-500 rounded-md mt-5 p-5'></textarea>
+          <button onClick={handleReview} className='rounded-xl mt-5 py-1 bg-blue-400 w-20 text-white'>Submit</button>
       </div>
   </div>
         <Footer/>

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Header = (props) => {
   return (
       <header>
-          <div className='flex justify-between px-8 py-7 text-indigo-900'>
+          <div className='flex justify-between px-8 py-7 text-white bg-red-900'>
               <div className='flex space-x-20'>
                   <div>
                   <a href="/">

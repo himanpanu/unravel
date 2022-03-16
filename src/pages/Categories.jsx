@@ -5,7 +5,7 @@ import Sidebar from '../components/Sidebar'
 
 const Categories = () => {
   return (
-    <div>
+    <div className='font-["Arial"]'>
         <Header2/>
         <div className='flex flex-row px-16 py-10 w-full'>
          <Sidebar/>

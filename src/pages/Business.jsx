@@ -3,7 +3,7 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 
 const Business = () => {
-  return <div className='h-screen'>
+  return <div className='h-screen font-["Arial"]'>
       <Header/>
       <div style={{backgroundImage: "url(/images/store.jpg)"}} className={'bg-cover flex bg-center h-4/6 items-end justify-end'}>
           <div className='bg-white w-1/3 mr-10 mb-10 p-10'>

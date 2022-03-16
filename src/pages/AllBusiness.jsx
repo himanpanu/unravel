@@ -24,9 +24,9 @@ const AllBusiness = () => {
 
 
   return (
-    <div class="h-screen">
+    <div class="h-screen font-['Arial']">
         <Header/>
-        <section className='bg-slate-100 py-16 flex flex-col justify-center items-center space-y-3 mt-5 px-16'>
+        <section className='bg-slate-100 py-16 flex flex-col justify-center items-center space-y-3 px-16'>
             <div className='text-blue-900 text-3xl font-medium'>Our Latest Listings</div>
             <div className='text-blue-900 text-xl'>It is a long established fact that reader are distracted</div>
             <div className='flex flex-wrap justify-center items-start w-full pb-5 pt-10'>{ bdata.data.map((value) => {
@@ -45,7 +45,7 @@ const Article2 = (props) => {
         <div className='text-lg font-medium px-2'>{props.name}</div>
         <div className='text-xs font-medium pb-1 px-2'>{props.address}</div>
         <div className='flex font-medium justify-between text-xs pt-2 border-t-slate-200 border-white border'>
-            <div className='bg-purple-700 rounded-sm text-white p-0.5 px-1 ml-2'>
+            <div className='bg-purple-700 rounded-sm text-white p-0.5 px-2 ml-2'>
                 {props.rating}
             </div>
             <div className='mr-2'>

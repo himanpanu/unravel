@@ -29,7 +29,7 @@ const Register = () => {
     })
   }
 
-  return <div className='flex justify-center bg-slate-200 h-full'>
+  return <div className='flex font-["Arial"] justify-center bg-slate-200 h-full'>
   <div className='flex flex-col mt-14 bg-white h-screen justify-center items-center px-10 rounded-md mb-10'> 
       <p className='text-slate-900 text-2xl font-medium mb-6'>Create an account</p>
       <label for="fName" className='text-sm self-start text-slate-700'>First Name</label>

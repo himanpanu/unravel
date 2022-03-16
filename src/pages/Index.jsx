@@ -31,11 +31,11 @@ const Index = () => {
     }
   
     return (
-      <div className="h-screen">
+      <div className="h-screen font-['Arial']">
       <Header/>
       {/* Cover Banner Start */}
       <section onClick={auto} style={{backgroundImage: "url(/images/store.jpg)"}} className={'bg-cover bg-center h-4/6'}>
-        <div className='bg-blue-700 flex flex-col h-full items-center justify-center bg-opacity-80 space-y-16'>
+        <div className='bg-red-300 flex flex-col h-full items-center justify-center bg-opacity-80 space-y-16'>
           <div className='text-white flex flex-col items-center space-y-3'>
             <h2 className='text-4xl font-medium'>Welcome to The Biggest Business Directory</h2>
             <h4 className='text-xl'>It is a long established fact that reader are distracted</h4>

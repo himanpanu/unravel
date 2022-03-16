@@ -5,9 +5,9 @@ import Sidebar from '../components/Sidebar'
 
 const Overview = () => {
   return (
-    <div>
+    <div className='font-["Arial"]'>
         <Header2/>
-        <div className='flex flex-row px-16 py-10 w-full'>
+        <div className='flex flex-row px-16 py-10 w-full pb-36'>
          <Sidebar/>
             <div className='px-10'>
                 <h2 className='mb-8 text-5xl text-blue-900 border-b-2 pb-10 pr-20 border-slate-300'>Business Information</h2>

@@ -30,7 +30,7 @@ const Login = () => {
     //     login && navigate("/interact");
     // },[login])
 
-  return <div className='flex justify-center bg-slate-200 h-screen'>
+  return <div className='flex justify-center bg-slate-200 h-screen font-["Arial"]'>
       <div className='flex flex-col mt-24 bg-white h-2/3 justify-center items-center px-10 rounded-md'> 
           <p className='text-slate-900 text-2xl font-medium mb-6'>Sign in to our platform</p>
           <label for="email" className='text-sm self-start text-slate-700'>Your Email</label>
