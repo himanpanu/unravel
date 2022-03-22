@@ -1,76 +1,35 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useContext, useEffect, useState } from 'react'
+import { AuthContext } from '../AuthProvider'
 import Footer from '../components/Footer'
+import Header from '../components/Header'
 import Header2 from '../components/Header2'
 import Sidebar from '../components/Sidebar'
+import { blogs } from '../imgs'
 
 const Reviews = () => {
+  const { setUser, user } = useContext(AuthContext);
+  const [reviews, setReviews] = useState([]);
+  useEffect(async() => {
+    await axios.get("https://finalexam.online/review/user/"+user.email)
+    .then(response => {
+      setReviews(response.data.data)
+    })
+    })
+
   return (
-    <div className='font-["Arial"]'>
-        <Header2/>
-        <div className='flex flex-row px-16 py-10 w-full'>
+    <div className='font-["Arial"] flex flex-col justify-center'>
+        <Header/>
+        <div className='bg-[#1354D1] w-full h-1/2 -z-50 absolute top-0'></div>
+        <div className='flex flex-row px-16 py-10 w-5/6 justify-center self-center bg-white mt-20 border border-slate-200 shadow-md'>
          <Sidebar/>
             <div className='px-10 w-4/5'>
-                <h2 className='mb-8 text-5xl text-blue-900 border-b-2 pb-10 pr-20 border-slate-300'>Reviews</h2>
+            <h2 className='mb-2 text-4xl text-[#263248] pr-20'>All Reviews</h2>
                 {/* <Rcomp/> */}
-                <div className='pl-10 pt-4 w-full'>
-                    <div className='flex text-slate-500 text-sm space-x-16 px-10 py-4 shadow-md rounded-md'>
-                        <div>All</div>
-                        <div>Replied</div>
-                        <div>Haven't</div>
-                    </div>
-                    <div className='flex flex-col shadow-md mt-4 text-sm rounded-md border border-slate-200'>
-                        <div className='flex px-5 py-4 pb-6 space-x-4 border-b border-b-slate-200'>
-                            <div><img className='h-12 w-12 pt-4 rounded-md contain' src="https://imageio.forbes.com/specials-images/imageserve/61688aa1d4a8658c3f4d8640/Antonio-Juliano/0x0.jpg?fit=bounds&format=jpg&width=960"/></div>
-                            <div>
-                                <h1>Himekashi Shayr</h1>
-                                <div className='flex space-x-4 items-center mb-2'>
-                                    <span className='flex'>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" fill="rgba(240,196,53,1)"/></svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" fill="rgba(240,196,53,1)"/></svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" fill="rgba(240,196,53,1)"/></svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" fill="rgba(240,196,53,1)"/></svg>
-                                    </span>
-                                    <span className='text-xs text-slate-500'>27 weeks ago</span>
-                                </div>
-                                <h4 className='font-italic text-slate-600 mb-8'>The user didn't write a review and has left just a rating.</h4>
-                                <span className='text-blue-500 border border-slate-300 rounded-md py-2 mt-4 px-4'>Reply</span>
-                            </div>
-                        </div>
-                        <div className='flex px-5 py-4 pb-6 space-x-4 border-b border-b-slate-200'>
-                            <div><img className='h-12 w-12 pt-4 rounded-md contain' src="https://imageio.forbes.com/specials-images/imageserve/61688aa1d4a8658c3f4d8640/Antonio-Juliano/0x0.jpg?fit=bounds&format=jpg&width=960"/></div>
-                            <div>
-                                <h1>Himekashi Shayr</h1>
-                                <div className='flex space-x-4 items-center mb-2'>
-                                    <span className='flex'>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" fill="rgba(240,196,53,1)"/></svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" fill="rgba(240,196,53,1)"/></svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" fill="rgba(240,196,53,1)"/></svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" fill="rgba(240,196,53,1)"/></svg>
-                                    </span>
-                                    <span className='text-xs text-slate-500'>27 weeks ago</span>
-                                </div>
-                                <h4 className='font-italic text-slate-600 mb-8'>The user didn't write a review and has left just a rating.</h4>
-                                <span className='text-blue-500 border border-slate-300 rounded-md py-2 mt-4 px-4'>Reply</span>
-                            </div>
-                        </div>
-                        <div className='flex px-5 py-4 pb-6 space-x-4 border-b border-b-slate-200'>
-                            <div><img className='h-12 w-12 pt-4 rounded-md contain' src="https://imageio.forbes.com/specials-images/imageserve/61688aa1d4a8658c3f4d8640/Antonio-Juliano/0x0.jpg?fit=bounds&format=jpg&width=960"/></div>
-                            <div>
-                                <h1>Himekashi Shayr</h1>
-                                <div className='flex space-x-4 items-center mb-2'>
-                                    <span className='flex'>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" fill="rgba(240,196,53,1)"/></svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" fill="rgba(240,196,53,1)"/></svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" fill="rgba(240,196,53,1)"/></svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z" fill="rgba(240,196,53,1)"/></svg>
-                                    </span>
-                                    <span className='text-xs text-slate-500'>27 weeks ago</span>
-                                </div>
-                                <h4 className='font-italic text-slate-600 mb-8'>The user didn't write a review and has left just a rating.</h4>
-                                <span className='text-blue-500 border border-slate-300 rounded-md py-2 mt-4 px-4'>Reply</span>
-                            </div>
-                        </div>
-                    </div>
+                <div className='pt-4 w-full'>
+                <div className='flex flex-col space-y-12 justify-around pb-4 pt-4'>{(reviews).map((value) => {
+    return (<BlogCard key={value.id} image={value.url} {...value}/>)
+  })}</div>
                 </div>
               
             </div>
@@ -80,21 +39,58 @@ const Reviews = () => {
   )
 }
 
-const Rcomp = (props) => {
-    var date = new Date(props.det.createdDate)
-    return (
-        <div className='text-[0.9rem] my-4'>
-              <div>
-                  <h4 className='font-bold'>{props.det.firstName +" " + props.det.lastName + " - (" + props.det.ratingStar+")"}</h4>
-                  <h5 className='text-xs'>{date.toLocaleDateString()}</h5>
-              </div>
-              <p className='mt-2'>
-              {props.det.message}
-              </p>
+const BlogCard = (props) => {
+    return <div className='rounded-md shadow-md px-8 py-6'>
+      <div className='flex space-x-4'>
+      <img className="h-16 w-16 contain rounded-full" src="/images/auto.jpg" />
+      <div>
+        <div className='flex space-x-4'><span className='flex space-x-1'><span className='bg-[#4ba168] flex items-center px-1 rounded-sm'>
+        <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.08203 12.31L3.30603 14.81L4.21803 9.50999L0.353027 5.76099L5.69303 4.98799L8.08203 0.166992L10.471 4.98699L15.811 5.75999L11.946 9.51299L12.858 14.813L8.08203 12.31Z" fill="white"/>
+</svg>
 
-              <button className='bg-slate-200 py-1 px-2 rounded-md mt-2'>Reply</button>
-          </div>
-    )
+        </span>
+        <span className='bg-[#4ba168] flex items-center px-1 rounded-sm'>
+        <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.08203 12.31L3.30603 14.81L4.21803 9.50999L0.353027 5.76099L5.69303 4.98799L8.08203 0.166992L10.471 4.98699L15.811 5.75999L11.946 9.51299L12.858 14.813L8.08203 12.31Z" fill="white"/>
+</svg>
+
+        </span>
+        <span className='bg-[#4ba168] flex items-center px-1 rounded-sm'>
+        <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.08203 12.31L3.30603 14.81L4.21803 9.50999L0.353027 5.76099L5.69303 4.98799L8.08203 0.166992L10.471 4.98699L15.811 5.75999L11.946 9.51299L12.858 14.813L8.08203 12.31Z" fill="white"/>
+</svg>
+
+        </span>
+        <span className='bg-[#4ba168] flex items-center px-1 rounded-sm py-1'>
+        <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.08203 12.31L3.30603 14.81L4.21803 9.50999L0.353027 5.76099L5.69303 4.98799L8.08203 0.166992L10.471 4.98699L15.811 5.75999L11.946 9.51299L12.858 14.813L8.08203 12.31Z" fill="white"/>
+</svg>
+
+        </span>
+</span><span className='text-[#999] text-sm'>{props.ratingStar}/5.0</span></div>
+        <h1 className='text-sm font-bold text-[#555555] mt-2'>Shops</h1>
+      </div>
+      </div>
+      
+      <footer className='flex flex-col justify-around bg-white py-2 text-sm rounded-b-md space-y-2 pb-6 mt-2'>
+         <div className='flex space-x-2 items-center'>
+            <h1 className='text-base font-bold'>{props.businessName}</h1>
+            <h2 className='text-sm text-[#999]'>reviewd</h2>
+         </div>
+         <div className='font-bold text-xl'>
+           "Great Experience"
+         </div>
+         <div className='text-lg text-[#999] pb-4'>
+           {props.message}
+         </div>
+         <div className='flex justify-between items-center'>
+            <div className='text-xs font-semibold text-[#999]'>Published : 26 February 2022</div>
+            <div className='bg-blue-600 text-white text-xs py-1 rounded-md px-3 cursor-pointer font-semibold'>Read Reviews</div>
+         </div>
+      </footer>
+    </div>;
 }
+    
 
 export default Reviews

@@ -4,7 +4,7 @@ import Header from '../components/Header'
 import { businesses } from '../imgs'
 
 const AllBusiness = () => {
-  const { name } =  useParams();
+  const { name, location } =  useParams();
   const [bdata, setData] = useState(businesses);
   fetch("https://finalexam.online/onlinebusiness/search", {
         method: 'POST', 
@@ -15,7 +15,7 @@ const AllBusiness = () => {
         },
         redirect: 'follow', 
         referrerPolicy: 'no-referrer',
-        body: JSON.stringify({"searchLocation":{"city":"","country":"india","state":""},"searchString": name})
+        body: JSON.stringify({"searchLocation":{"city": location ,"country":"india","state":""},"searchString": name})
       })
       .then(response => response.json())
       .then(data => {
@@ -46,7 +46,7 @@ const Article2 = (props) => {
         <div className='text-xs font-medium pb-1 px-2'>{props.address}</div>
         <div className='flex font-medium justify-between text-xs pt-2 border-t-slate-200 border-white border'>
             <div className='bg-purple-700 rounded-sm text-white p-0.5 px-2 ml-2'>
-                {props.rating}
+                {props.rating !== 0 ? props.rating : "NA"}
             </div>
             <div className='mr-2'>
                 {props.reviews} reviews

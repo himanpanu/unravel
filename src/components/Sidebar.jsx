@@ -3,37 +3,32 @@ import { Link } from 'react-router-dom'
 
 const Sidebar = () => {
   return (
-    <div className='flex flex-col font-bold w-1/6'>
-    <div class="font-medium text-xl mb-8 text-red-900">
-        <h1>
-            Business Name
-        </h1>
-        <h2>
-            Address
-        </h2>
-        <h2>
-            City
-        </h2>
+    <div className='flex flex-col w-1/5 text-[#263248]'>
+    <div class="font-medium mb-8 flex space-x-2 items-center">
+        <div className='w-20 h-20 border border-[#707070] rounded-full'>
+
+        </div>
+        <div className='text-sm'>
+         <h1 className='text-slate-500'>Hello,</h1>
+         <h1>Jessica Albertoz</h1>
+        </div>
     </div>
-    <Link to="/user" class="border-y border-black py-2">
-        Overview
+    <Link to="/user/business" class=" py-2">
+        Business Info
     </Link>
-    <Link to="#" class="border-b border-black py-2">
-        Business Information
-    </Link>
-    <Link to="/user/reviews" class="border-b border-black py-2">
+    <Link to="/user/business/reviews" class=" py-2">
         Reviews
     </Link>
-    <Link to="/user/photos" class="border-b border-black py-2">
-        Photos & Videos
+    <Link to="/user/business/photos" class=" py-2">
+        Photos
     </Link>
-    <Link to="/user/categories" class="border-b border-black py-2">
-        Categories
+    <Link to="/user/business/categories" class=" py-2">
+        Category
     </Link>
-    <div class="border-b border-black py-2">
-        Blogs
-    </div>
-    <div class="border-b border-black py-2">
+    <Link to="/user/business/blogs" class=" py-2">
+        Create Blogs
+    </Link>
+    <div class="py-2">
         Logout
     </div>
 </div>

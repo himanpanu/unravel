@@ -46,11 +46,11 @@ const blogs = [
         url: '/images/auto.jpg',
     },
     {
-        id: 2,
-        name: 'Food Outlet',
+        id: 1,
+        name: 'Art Gallery',
         description: '3 Secret Places to visit',
         created_at: 'March 7, 2022',
-        url: '/images/auto.jpg',
+        url: '/images/art.jpg',
     },
     {
         id: 1,

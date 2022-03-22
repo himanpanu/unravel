@@ -4,19 +4,17 @@ import { Link } from 'react-router-dom';
 
 const Header = (props) => {
   return (
-      <header>
-          <div className='flex justify-between px-8 py-7 text-white bg-red-900'>
+      <header className="font-roboto">
+          <div className='flex justify-between px-8 py-7 text-[#020202] bg-white'>
               <div className='flex space-x-20'>
                   <div>
-                  <a href="/">
-                      LOGO
-                  </a>
-                  </div>
-                  <div>
-                    <span className='text-lg md:text-3xl'>Discover your Business</span>
+                    <span className='text-lg md:text-2xl font-bold'>UNRAVEL</span>
                   </div>
               </div>
-              <div className='flex space-x-5 items-center'>
+              <div className='flex space-x-8 items-center text-[0.974rem]'>
+                <Link to="/" className='hidden md:inline-flex'>
+                      Home
+                  </Link>
                   <Link to="/review" className='hidden md:inline-flex'>
                       Write a Review
                   </Link>
@@ -26,10 +24,10 @@ const Header = (props) => {
                   <Link to="/business" className='hidden md:inline-flex'>
                       Unravel for Business
                     </Link>
-                  <Link to="/login">
+                  <Link to="/login" className='bg-[#3578F8] text-white px-6 py-1 rounded-md'>
                       Login
                   </Link>
-                  <Link to="/register" className='bg-[#FF952B] text-white px-4 py-1 rounded-full'>
+                  <Link to="/register" className='bg-[#051D4D] text-white px-6 py-1 rounded-md'>
                       Sign Up
                   </Link>
               </div>

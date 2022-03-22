@@ -7,7 +7,7 @@ axios.defaults.baseURL = 'https://back.examswitch.online';
 export const AuthContext = React.createContext({});
 
 export const AuthProvider = ({children}) => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({businessId: "", email : ""});
   const [error, setError] = useState(null);
     let navigate = useNavigate();
   return (
@@ -29,8 +29,9 @@ export const AuthProvider = ({children}) => {
             }
             setUser(userResponse);
             setError(null);
-            navigate("/user")
+            navigate("/user/reviews")
           })
+          .then()
           .catch(error => {
             const key = Object.keys(error.response.data.errors)[0];
             setError(error.response.data.errors[key][0]);
